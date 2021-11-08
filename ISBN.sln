@@ -6,12 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F2D75BE9-587E-46CC-BFE4-D5BA538E325A}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.netconfig = .netconfig
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISBN", "src\ISBN\ISBN.csproj", "{B88431A2-9157-4556-AF57-84CA94C48A2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ISBN", "src\ISBN\ISBN.csproj", "{B88431A2-9157-4556-AF57-84CA94C48A2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "src\Tests\Tests.csproj", "{981FC772-B5F4-4A38-9EA6-50904FBD0C9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "src\Tests\Tests.csproj", "{981FC772-B5F4-4A38-9EA6-50904FBD0C9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
