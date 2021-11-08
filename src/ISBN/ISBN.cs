@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 
@@ -62,11 +63,10 @@ public partial record ISBN(string Group, string GroupName, string Publisher, str
     /// <param name="isbn">The ISBN to parse.</param>
     /// <param name="result">The parsed result, if valid.</param>
     /// <returns><see langword="false"/> if the <paramref name="isbn"/> was not a valid ISBN. <see langword="true"/> otherwise.</returns>
-    public static bool TryParse(string isbn, out ISBN? result)
+    public static bool TryParse(string isbn, [NotNullWhen(true)] out ISBN? result)
     {
         result = default;
         isbn = new string(isbn.Where(c => c != ' ' && c != '-').ToArray());
-
         if (isbn.Length == 10)
             isbn += "978";
 

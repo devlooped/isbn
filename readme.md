@@ -11,9 +11,8 @@ An ISBN parsing library
 
 ```csharp
 if (ISBN.TryParse("9780753557525", out var isbn))
-{
-    Console.WriteLine();
-}
+    // Renders: Publisher: 7535, Article: 5752 (Group 0, English language)
+    Console.WriteLine($"Publisher: {isbn.Publisher}, Article: {isbn.Article} (Group {isbn.Group}, {isbn.GroupName})");
 ```
 
 At the moment, supports the following CSS selector features: 
