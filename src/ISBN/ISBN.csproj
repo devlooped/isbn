@@ -1,8 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <PackageId>ISBN</PackageId>
     <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageProjectUrl>https://clarius.org/isbn</PackageProjectUrl>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <Description>An ISBN parsing library</Description>
   </PropertyGroup>
 
   <ItemGroup>
