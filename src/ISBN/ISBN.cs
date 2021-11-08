@@ -6,6 +6,11 @@ using Newtonsoft.Json.Linq;
 /// <summary>
 /// Adapted to C# from https://github.com/inventaire/isbn3
 /// </summary>
+/// <param name="Group">Identifies the particular country, geographical region, or language area 
+/// participating in the ISBN system.</param>
+/// <param name="GroupName">Display name of the <paramref name="Group"/>, such as "English language".</param>
+/// <param name="Publisher">Identifies the particular publisher or imprint.</param>
+/// <param name="Article">Identifies the particular edition and format of a specific title.</param>
 public partial record ISBN(string Group, string GroupName, string Publisher, string Article)
 {
     record Range(string Min, string Max);
@@ -18,7 +23,6 @@ public partial record ISBN(string Group, string GroupName, string Publisher, str
     {
         // TODO: get from embedded resource?
         var raw = EmbeddedResource.GetContent("groups.js");
-        //var raw = Http.CreateClient().GetStringAsync("https://github.com/inventaire/isbn3/raw/master/lib/groups.js").Result;
         var json = raw.Substring(raw.IndexOf('{'));
         var data = JObject.Parse(json);
 

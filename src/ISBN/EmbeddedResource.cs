@@ -5,11 +5,11 @@ using System.Reflection;
 
 static class EmbeddedResource
 {
-    static readonly string baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+    static readonly string? baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
     public static string GetContent(string relativePath)
     {
-        var filePath = Path.Combine(baseDir, Path.GetFileName(relativePath));
+        var filePath = Path.Combine(baseDir ?? "", Path.GetFileName(relativePath));
         if (File.Exists(filePath))
             return File.ReadAllText(filePath);
 
