@@ -1,8 +1,8 @@
 # Changelog
 
-## [v1.0.0-alpha](https://github.com/devlooped/isbn/tree/v1.0.0-alpha) (2021-11-08)
+## [v1.0.0](https://github.com/devlooped/isbn/tree/v1.0.0) (2021-11-08)
 
-[Full Changelog](https://github.com/devlooped/isbn/compare/9197e446181ebd70ab7828f53bb4200956b57d49...v1.0.0-alpha)
+[Full Changelog](https://github.com/devlooped/isbn/compare/9197e446181ebd70ab7828f53bb4200956b57d49...v1.0.0)
 
 
 
