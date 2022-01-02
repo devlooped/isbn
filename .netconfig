@@ -113,13 +113,13 @@
 	weak
 [file "src/Directory.Build.props"]
 	url = https://github.com/devlooped/oss/blob/main/src/Directory.Build.props
-	sha = b65c8f17c75d0dd64e3f5e1b7047abc900cd078c
-	etag = da93f157923226a8a57b68c621b64fd46ae70b85e139e530a26ec77b9ce7fa42
+	sha = cc6922f63e2bd520a75f46592cfb38cec02aaccd
+	etag = 743fd7845e40d9aef662f858a2d48dbfec9a10977e15394f45e331841a3c0dfd
 	weak
 [file "src/Directory.Build.targets"]
 	url = https://github.com/devlooped/oss/blob/main/src/Directory.Build.targets
-	sha = bfe0f2a2a668878931f43b7280f0406a2171ff0c
-	etag = 46287392cb21e28595b1ea658236b8afa15f985c9f75dc08ed85e81a2c465755
+	sha = 83d73781f82a05b805c98b70219c32a47c096fbe
+	etag = 7b62ae495bdfb2dcca473709323ab0d5cf2bb7637e7bff3250ae9267839069ef
 	weak
 [file "src/kzu.snk"]
 	url = https://github.com/devlooped/oss/blob/main/src/kzu.snk
@@ -133,6 +133,6 @@
 	weak
 [file "src/ISBN/groups.js"]
 	url = https://github.com/inventaire/isbn3/blob/master/lib/groups.js
-	sha = f91f3b96c74b16efbef5513a958a869ef86bcc51
-	etag = dd27bb5d33eaeded4f1802032eaa044885b248352bbb5d0e75690b74115b2fea
+	sha = 4348b410704cc4084a4705459a9c2685998bad08
+	etag = 6868917f4e408bd0c725576dba0e31f230445a09bd858084d74094318065cc81
 	weak
