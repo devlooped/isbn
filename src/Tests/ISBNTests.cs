@@ -26,4 +26,7 @@ public record ISBNTests(ITestOutputHelper Output)
             Assert.True(false, "Failed to parse " + isbn);
         }
     }
+
+    [Fact]
+    public void ParseNullIsbnReturnsFalse() => Assert.False(ISBN.TryParse(null, out var _));
 }
