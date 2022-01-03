@@ -78,6 +78,8 @@
 
     <!-- Don't warn for packages using semver 2.0 -->
     <NoWarn>NU5105;$(NoWarn)</NoWarn>
+    <!-- Don't warn for nuget repository signature validation, which fails randomly on macOS, see https://github.com/dotnet/core/issues/6595, example https://github.com/devlooped/isbn/runs/4694726319?check_suite_focus=true -->
+    <NoWarn>NU3028;NU3037;$(NoWarn)</NoWarn>
     <!-- Turn warnings into errors in CI or Release builds -->
     <WarningsAsErrors Condition="$(CI) or '$(Configuration)' == 'Release'">true</WarningsAsErrors>
     
