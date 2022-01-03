@@ -18,7 +18,7 @@ public partial record ISBN
     static ISBN()
     {
         var raw = EmbeddedResource.GetContent("groups.js");
-        var json = raw.Substring(raw.IndexOf('{'));
+        var json = raw[raw.IndexOf('{')..];
         var data = JObject.Parse(json);
 
         foreach (var prop in data.Properties())
@@ -88,14 +88,14 @@ public partial record ISBN
         var (group, restAfterGroup) = groupData.Value;
         foreach (var range in group.Ranges)
         {
-            var publisher = restAfterGroup.Substring(0, range.Min.Length);
+            var publisher = restAfterGroup[..range.Min.Length];
             //// Warning: comparing strings: seems to be ok as ranges boundaries are of the same length
             //// and we are testing a publisher code of that same length
             //// (so there won't be cases of the kind '2' > '199' == true)
             if (range.Min.CompareTo(publisher) <= 0 && range.Max.CompareTo(publisher) >= 0)
             {
-                var restAfterPublisher = restAfterGroup.Substring(publisher.Length);
-                result = new ISBN(isbn, group.Key, group.Name, publisher, restAfterPublisher.Substring(0, restAfterPublisher.Length - 1));
+                var restAfterPublisher = restAfterGroup[publisher.Length..];
+                result = new ISBN(isbn, group.Key, group.Name, publisher, restAfterPublisher[0..^1]);
                 return true;
             }
         }
@@ -174,11 +174,11 @@ public partial record ISBN
 
     static (GroupDef group, string restAfterGroup)? GetGroup(string isbn)
     {
-        var prefix = isbn.Substring(0, 3);
+        var prefix = isbn[..3];
         if (!groupsMap.TryGetValue(prefix, out var groupMap))
             return null;
 
-        var restAfterPrefix = isbn.Substring(3);
+        var restAfterPrefix = isbn[3..];
         var groupFirstDigit = restAfterPrefix[0];
         if (!groupMap.TryGetValue(groupFirstDigit, out var prefixMap))
             return null;
@@ -186,7 +186,7 @@ public partial record ISBN
         foreach (var groupPrefix in prefixMap)
         {
             if (restAfterPrefix.StartsWith(groupPrefix.Key))
-                return (groupPrefix.Value, restAfterPrefix.Substring(groupPrefix.Key.Length));
+                return (groupPrefix.Value, restAfterPrefix[groupPrefix.Key.Length..]);
         }
 
         return null;
