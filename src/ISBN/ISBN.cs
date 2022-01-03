@@ -2,27 +2,21 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Text;
 using Newtonsoft.Json.Linq;
 
 /// <summary>
 /// Adapted to C# from https://github.com/inventaire/isbn3
 /// </summary>
-/// <param name="Group">Identifies the particular country, geographical region, or language area 
-/// participating in the ISBN system.</param>
-/// <param name="GroupName">Display name of the <paramref name="Group"/>, such as "English language".</param>
-/// <param name="Publisher">Identifies the particular publisher or imprint.</param>
-/// <param name="Article">Identifies the particular edition and format of a specific title.</param>
-public partial record ISBN(string Group, string GroupName, string Publisher, string Article)
+public partial record ISBN
 {
     record Range(string Min, string Max);
-
     record GroupDef(string Key, string Name, Range[] Ranges);
 
     static readonly ConcurrentDictionary<string, ConcurrentDictionary<char, ConcurrentDictionary<string, GroupDef>>> groupsMap = new();
 
     static ISBN()
     {
-        // TODO: get from embedded resource?
         var raw = EmbeddedResource.GetContent("groups.js");
         var json = raw.Substring(raw.IndexOf('{'));
         var data = JObject.Parse(json);
@@ -71,10 +65,21 @@ public partial record ISBN(string Group, string GroupName, string Publisher, str
 
         isbn = new string(isbn.Where(c => c != ' ' && c != '-').ToArray());
         if (isbn.Length == 10)
-            isbn += "978";
+        {
+            if (!VerifyChecksum10(isbn))
+                return false;
 
-        if (isbn.Length != 13)
+            var sb = new StringBuilder(13)
+                .Append("978")
+                .Append(isbn[..^1]);
+
+            // Append irrelevant last char since it's skipped when getting the checksum
+            isbn = sb.Append(GetChecksum(sb.ToString() + "0")).ToString();
+        }
+        else if (isbn.Length != 13 || !VerifyChecksum(isbn))
+        {
             return false;
+        }
 
         var groupData = GetGroup(isbn);
         if (groupData == null)
@@ -90,12 +95,75 @@ public partial record ISBN(string Group, string GroupName, string Publisher, str
             if (range.Min.CompareTo(publisher) <= 0 && range.Max.CompareTo(publisher) >= 0)
             {
                 var restAfterPublisher = restAfterGroup.Substring(publisher.Length);
-                result = new ISBN(group.Key, group.Name, publisher, restAfterPublisher.Substring(0, restAfterPublisher.Length - 1));
+                result = new ISBN(isbn, group.Key, group.Name, publisher, restAfterPublisher.Substring(0, restAfterPublisher.Length - 1));
                 return true;
             }
         }
 
         return false;
+    }
+
+    readonly string isbn;
+
+    ISBN(string isbn, string group, string groupName, string publisher, string article)
+        => (this.isbn, Group, GroupName, Publisher, Article)
+        = (isbn, group, groupName, publisher, article);
+
+    /// <summary>
+    /// Identifies the particular country, geographical region, or language area 
+    /// participating in the ISBN system
+    /// </summary>
+    public string Group { get; init; }
+
+    /// <summary>
+    /// Display name of the <see href="Group"/>, such as "English language".
+    /// </summary>
+    public string GroupName { get; init; }
+
+    /// <summary>
+    /// Identifies the particular publisher or imprint.
+    /// </summary>
+    public string Publisher { get; init; }
+
+    /// <summary>
+    /// Identifies the particular edition and format of a specific title.
+    /// </summary>
+    public string Article { get; init; }
+
+    /// <summary>
+    /// Returns the 13-char normalized ISBN.
+    /// </summary>
+    public override string ToString() => isbn;
+
+    static int GetChecksum(string isbn)
+    {
+        var checksum = isbn
+            .Take(12)
+            .Select((c, i) => (isbn[i] - '0') * (i % 2 == 0 ? 1 : 3))
+            .Sum();
+
+        var digit = (10 - checksum) % 10;
+        if (digit < 0)
+            digit += 10;
+
+        return digit;
+    }
+
+    static bool VerifyChecksum(string isbn)
+        => GetChecksum(isbn) == (isbn[^1] == 'X' ? 10 : isbn[^1] - '0');
+
+    static bool VerifyChecksum10(string isbn)
+    {
+        var checksum = isbn
+            .Take(9)
+            .Select((c, i) => (isbn[i] - '0') * (10 - i))
+            .Sum();
+
+        var digit = (11 - checksum) % 11;
+        if (digit < 0)
+            digit += 11;
+
+        return digit == (isbn[^1] == 'X' ? 10 : isbn[^1] - '0');
     }
 
     static (GroupDef group, string restAfterGroup)? GetGroup(string isbn)

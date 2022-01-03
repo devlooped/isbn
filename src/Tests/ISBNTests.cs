@@ -29,4 +29,14 @@ public record ISBNTests(ITestOutputHelper Output)
 
     [Fact]
     public void ParseNullIsbnReturnsFalse() => Assert.False(ISBN.TryParse(null, out var _));
+
+    [Theory]
+    [InlineData("1590593618", "9781590593615")]
+    [InlineData("978-1-492-07589-9", "9781492075899")]
+    [InlineData("978 1 492 07589 9", "9781492075899")]
+    public void NormalizeIsbn(string isbn, string normalized)
+    {
+        Assert.True(ISBN.TryParse(isbn, out var i));
+        Assert.Equal(normalized, i!.ToString());
+    }
 }

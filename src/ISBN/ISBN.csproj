@@ -12,15 +12,13 @@
   <ItemGroup>
     <PackageReference Include="IsExternalInit" Version="1.0.2" PrivateAssets="all" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Nullable" Version="1.3.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="groups.js" />
     <None Include="..\..\readme.md" PackagePath="readme.md" />
+    <Compile Remove="Range.cs" Condition="$(TargetFramework) != 'netstandard2.0'" />
   </ItemGroup>
 
   <ItemGroup>
