@@ -136,3 +136,8 @@
 	sha = 4348b410704cc4084a4705459a9c2685998bad08
 	etag = 6868917f4e408bd0c725576dba0e31f230445a09bd858084d74094318065cc81
 	weak
+[file "src/nuget.config"]
+	url = https://github.com/devlooped/oss/blob/main/src/nuget.config
+	sha = 7d0ccab53c166b87b971040f25de06570821f8ac
+	etag = 0ef58051c4db505e16b39954b27ab9e7a903647998b959e0924634d5f01824dd
+	weak
