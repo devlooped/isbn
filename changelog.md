@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.0.1](https://github.com/devlooped/isbn/tree/v1.0.1) (2022-01-02)
+
+[Full Changelog](https://github.com/devlooped/isbn/compare/v1.0.0...v1.0.1)
+
+:hammer: Other:
+
+- Allow passing a null string to TryParse [\#5](https://github.com/devlooped/isbn/issues/5)
+
+:twisted_rightwards_arrows: Merged:
+
+- Allow passing a null string to TryParse [\#6](https://github.com/devlooped/isbn/pull/6) (@kzu)
+
 ## [v1.0.0](https://github.com/devlooped/isbn/tree/v1.0.0) (2021-11-08)
 
 [Full Changelog](https://github.com/devlooped/isbn/compare/9197e446181ebd70ab7828f53bb4200956b57d49...v1.0.0)
