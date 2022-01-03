@@ -38,5 +38,6 @@ public record ISBNTests(ITestOutputHelper Output)
     {
         Assert.True(ISBN.TryParse(isbn, out var i));
         Assert.Equal(normalized, i!.ToString());
+        Assert.Equal(normalized, i.CanonicalNumber);
     }
 }

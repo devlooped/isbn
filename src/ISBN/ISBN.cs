@@ -110,6 +110,12 @@ public partial record ISBN
         = (isbn, group, groupName, publisher, article);
 
     /// <summary>
+    /// Provides the normalized ISBN with 13 characters, properly validated 
+    /// checksum and whitespace and dashes removed.
+    /// </summary>
+    public string CanonicalNumber => isbn;
+
+    /// <summary>
     /// Identifies the particular country, geographical region, or language area 
     /// participating in the ISBN system
     /// </summary>
@@ -131,9 +137,9 @@ public partial record ISBN
     public string Article { get; init; }
 
     /// <summary>
-    /// Returns the 13-char normalized ISBN.
+    /// Returns the <see cref="CanonicalNumber"/> property.
     /// </summary>
-    public override string ToString() => isbn;
+    public override string ToString() => CanonicalNumber;
 
     static int GetChecksum(string isbn)
     {
