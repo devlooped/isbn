@@ -1,10 +1,21 @@
 # Changelog
 
+## [v1.1.0](https://github.com/devlooped/isbn/tree/v1.1.0) (2022-01-03)
+
+[Full Changelog](https://github.com/devlooped/isbn/compare/v1.0.1...v1.1.0)
+
+:sparkles: Implemented enhancements:
+
+- ISBN parsing should also validate checksum digit [\#11](https://github.com/devlooped/isbn/issues/11)
+- Provide a CanonicalNumber property to expose the normalized standard book number [\#10](https://github.com/devlooped/isbn/issues/10)
+- ISBN constructor should be private [\#9](https://github.com/devlooped/isbn/issues/9)
+- ISBN.ToString\(\) should return the normalized parsed ISBN [\#8](https://github.com/devlooped/isbn/issues/8)
+
 ## [v1.0.1](https://github.com/devlooped/isbn/tree/v1.0.1) (2022-01-02)
 
 [Full Changelog](https://github.com/devlooped/isbn/compare/v1.0.0...v1.0.1)
 
-:hammer: Other:
+:sparkles: Implemented enhancements:
 
 - Allow passing a null string to TryParse [\#5](https://github.com/devlooped/isbn/issues/5)
 
