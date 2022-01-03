@@ -43,13 +43,19 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest, windows-2022, macOS-latest]
     steps:
       - name: 🤘 checkout
         uses: actions/checkout@v2
         with: 
           submodules: recursive
           fetch-depth: 0
+
+      - name: ⚙ dotnet 6
+        if: matrix.os == 'macOS-latest'
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
 
       - name: 🙏 build
         run: dotnet build -m:1 -p:VersionLabel="$GITHUB_REF.$GITHUB_RUN_NUMBER"
