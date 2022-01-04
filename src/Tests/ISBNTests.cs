@@ -34,6 +34,8 @@ public record ISBNTests(ITestOutputHelper Output)
     [InlineData("1590593618", "9781590593615")]
     [InlineData("978-1-492-07589-9", "9781492075899")]
     [InlineData("978 1 492 07589 9", "9781492075899")]
+    [InlineData("1784162124", "9781784162122")]
+    [InlineData("8860619645", "9788860619648")]
     public void NormalizeIsbn(string isbn, string normalized)
     {
         Assert.True(ISBN.TryParse(isbn, out var i));
