@@ -23,31 +23,31 @@ public partial record ISBN
 
         foreach (var prop in data.Properties())
         {
-            if (prop == null || prop.Value is not JObject obj ||
-                obj.Value<string>("name") is not string name ||
-                obj.Property("ranges") is not JProperty ranges ||
-                ranges.Value.Type != JTokenType.Array)
-                continue;
-
-            var result = new List<Range>();
-            foreach (var range in ((JArray)ranges.Value).OfType<JArray>())
+            if (prop?.Value is JObject obj &&
+                obj.Value<string>("name") is string name &&
+                obj.Property("ranges") is JProperty ranges &&
+                ranges?.Value is JArray rangeValues)
             {
-                var values = range.Values<string>().ToArray();
-                if (values.Length != 2 ||
-                    values[0] == null || values[1] == null)
-                    continue;
+                var result = new List<Range>();
+                foreach (var range in rangeValues)
+                {
+                    var values = range.Values<string>().ToArray();
+                    if (values.Length != 2 ||
+                        values[0] == null || values[1] == null)
+                        continue;
 
-                result.Add(new Range(values[0]!, values[1]!));
+                    result.Add(new Range(values[0]!, values[1]!));
+                }
+
+                var parts = prop.Name.Split('-');
+                var prefix = parts[0];
+                var group = parts[1];
+                var groupFirstDigit = group[0];
+
+                groupsMap.GetOrAdd(prefix, _ => new())
+                    .GetOrAdd(groupFirstDigit, _ => new())
+                    [group] = new GroupDef(group, name, result.ToArray());
             }
-
-            var parts = prop.Name.Split('-');
-            var prefix = parts[0];
-            var group = parts[1];
-            var groupFirstDigit = group[0];
-
-            groupsMap.GetOrAdd(prefix, _ => new())
-                .GetOrAdd(groupFirstDigit, _ => new())
-                [group] = new GroupDef(group, name, result.ToArray());
         }
     }
 
