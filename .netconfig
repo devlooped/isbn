@@ -58,13 +58,13 @@
 	weak
 [file ".github/workflows/changelog.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/changelog.yml
-	sha = 15e94864c0806dd899b4b8f7bb4fc8b99a62111a
-	etag = 3a0f1fb7819245b4b35c918f86c177ffa48cbecd153c62be2e245c02ca993508
+	sha = 5406d907e0bf87dd1b4375f2ae2279dd775ed672
+	etag = 034c69fefe727b412a52e49964646131b899d6e7bb1576fe9d4a4db9208675ff
 	weak
 [file ".github/workflows/dotnet-file.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/dotnet-file.yml
-	sha = d94ddb1384daf67602be0c4e02fad6c86b6c79b3
-	etag = a180d38577ce5f69caf05034d8332e99cb837fe8cfdfc0dee59cf9b6e4dbb61d
+	sha = aed791a3a35919e3088cd2bde604cbae6f47b393
+	etag = 0f7649805f5e84fba5104339bfd0c21ac4747b65186b16eab39f863e2db7a3e1
 	weak
 [file ".github/workflows/publish.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/publish.yml
@@ -133,23 +133,18 @@
 	weak
 [file "src/ISBN/groups.js"]
 	url = https://github.com/inventaire/isbn3/blob/master/lib/groups.js
-	sha = 7e1468977ff676999b2546de8cbc7b6702bf669d
-	etag = b4547ad4ce7bdfa2bdca378202ff198428c3d2ba4c277d86a1d417ec4835efe5
+	sha = c5f26f4cbf571cc7f3f69b852777859d5498bede
+	etag = 0779be036c87665448b7bfddb18b2d408d09bcfd5a0a5e6644f6f01be7b8d111
 	weak
 [file "src/nuget.config"]
 	url = https://github.com/devlooped/oss/blob/main/src/nuget.config
 	sha = 1537aa96d3c999642d678e1143b09950f235b977
 	etag = 754274e682c3523e3ac0a142ada64abff20551dc73bf16edfbd66415dcf87fd0
 	weak
-[file ".github/workflows/defaults/action.yml"]
-	url = https://github.com/devlooped/oss/blob/main/.github/workflows/defaults/action.yml
-	sha = 4253d8ae0f92625f475fabba36b67b2df7cb3806
-	etag = 2db4daaf02093f57836b6045053e72d846493935d5129b6b7ac3f5aea9dca4b4
-	weak
 [file ".github/workflows/includes.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/includes.yml
-	sha = d94ddb1384daf67602be0c4e02fad6c86b6c79b3
-	etag = d390b05199c9812efa33c1f49c59e80a14cfcb46240f08eb8981b718d659f7c1
+	sha = 5d05e541d7b028d64b044c5b9cc80afa19dc0de0
+	etag = c73a2aa293ec204e46771a99b095566082cad7989595ea725e5d76b27fe90894
 	weak
 [file ".github/workflows/test/action.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/test/action.yml
