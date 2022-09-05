@@ -12,14 +12,22 @@ An ISBN parsing library
 
 ```csharp
 if (ISBN.TryParse("9780753557525", out var isbn))
-    // Renders: Publisher: 7535, Article: 5752 (Group 0, English language)
-    Console.WriteLine($"Publisher: {isbn.Publisher}, Article: {isbn.Article} (Group {isbn.Group}, {isbn.GroupName})");
+{
+    Console.WriteLine($"Publisher: {isbn.Publisher}, Article: {isbn.Article} (Group {isbn.Group}, {isbn.GroupName})");    
+}
+
+> Publisher: 7535, Article: 5752 (Group 0, English language)
 ```
 
 ## Attribution
 
 The implementation is mostly a port from https://github.com/inventaire/isbn3, and consumes the 
 group information published in that repository.
+
+[ISBN grouns and ranges data](https://github.com/devlooped/isbn/blob/main/src/ISBN/groups.js) 
+is kept up to date via [dotnet-file sync](https://github.com/devlooped/dotnet-file) from the 
+isbn3 repository which in turn fetches [isbn-international.org](https://www.isbn-international.org) data.
+
 
 <!-- #content -->
 <!-- include https://github.com/devlooped/sponsors/raw/main/footer.md -->
