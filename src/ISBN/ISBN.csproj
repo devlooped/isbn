@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <None Remove="groups.js" />
-    <None Include="..\..\readme.md" PackagePath="readme.md" />
     <AdditionalFiles Include="groups.js" />
   </ItemGroup>
 
