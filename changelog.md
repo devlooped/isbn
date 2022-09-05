@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.2.1](https://github.com/devlooped/isbn/tree/v1.2.1) (2022-09-05)
+
+[Full Changelog](https://github.com/devlooped/isbn/compare/v1.2.0...v1.2.1)
+
 ## [v1.2.0](https://github.com/devlooped/isbn/tree/v1.2.0) (2022-09-05)
 
 [Full Changelog](https://github.com/devlooped/isbn/compare/v1.1.1...v1.2.0)
