@@ -1,9 +1,6 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
-using Newtonsoft.Json.Linq;
 
 /// <summary>
 /// Adapted to C# from https://github.com/inventaire/isbn3
@@ -12,44 +9,6 @@ public partial record ISBN
 {
     record Range(string Min, string Max);
     record GroupDef(string Key, string Name, Range[] Ranges);
-
-    static readonly ConcurrentDictionary<string, ConcurrentDictionary<char, ConcurrentDictionary<string, GroupDef>>> groupsMap = new();
-
-    static ISBN()
-    {
-        var raw = EmbeddedResource.GetContent("groups.js");
-        var json = raw[raw.IndexOf('{')..];
-        var data = JObject.Parse(json);
-
-        foreach (var prop in data.Properties())
-        {
-            if (prop?.Value is JObject obj &&
-                obj.Value<string>("name") is string name &&
-                obj.Property("ranges") is JProperty ranges &&
-                ranges?.Value is JArray rangeValues)
-            {
-                var result = new List<Range>();
-                foreach (var range in rangeValues)
-                {
-                    var values = range.Values<string>().ToArray();
-                    if (values.Length != 2 ||
-                        values[0] == null || values[1] == null)
-                        continue;
-
-                    result.Add(new Range(values[0]!, values[1]!));
-                }
-
-                var parts = prop.Name.Split('-');
-                var prefix = parts[0];
-                var group = parts[1];
-                var groupFirstDigit = group[0];
-
-                groupsMap.GetOrAdd(prefix, _ => new())
-                    .GetOrAdd(groupFirstDigit, _ => new())
-                    [group] = new GroupDef(group, name, result.ToArray());
-            }
-        }
-    }
 
     /// <summary>
     /// Tries parsing the given <paramref name="isbn"/> as a <see cref="ISBN"/> structure.
@@ -175,7 +134,7 @@ public partial record ISBN
     static (GroupDef group, string restAfterGroup)? GetGroup(string isbn)
     {
         var prefix = isbn[..3];
-        if (!groupsMap.TryGetValue(prefix, out var groupMap))
+        if (!groups.TryGetValue(prefix, out var groupMap))
             return null;
 
         var restAfterPrefix = isbn[3..];
