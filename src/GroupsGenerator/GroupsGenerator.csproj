@@ -14,9 +14,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.2.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" PrivateAssets="all" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" PrivateAssets="all" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" PrivateAssets="all" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
-    <PackageReference Include="Scriban" Version="5.5.2" PrivateAssets="all" />
+    <PackageReference Include="Scriban" Version="5.7.0" PrivateAssets="all" />
   </ItemGroup>
   
 </Project>
