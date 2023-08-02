@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.3.0](https://github.com/devlooped/isbn/tree/v1.3.0) (2023-08-02)
+
+[Full Changelog](https://github.com/devlooped/isbn/compare/v1.2.1...v1.3.0)
+
+:twisted_rightwards_arrows: Merged:
+
+- ⛙ ⬆️ Bump dependencies [\#46](https://github.com/devlooped/isbn/pull/46) (@github-actions[bot])
+
 ## [v1.2.1](https://github.com/devlooped/isbn/tree/v1.2.1) (2022-09-05)
 
 [Full Changelog](https://github.com/devlooped/isbn/compare/v1.2.0...v1.2.1)
@@ -14,7 +22,6 @@
 
 :twisted_rightwards_arrows: Merged:
 
-- +Mᐁ includes [\#31](https://github.com/devlooped/isbn/pull/31) (@devlooped-bot)
 - Improve package readme by leveraging nugetizer includes [\#30](https://github.com/devlooped/isbn/pull/30) (@kzu)
 - Remove dependency on Newtonsoft.Json [\#29](https://github.com/devlooped/isbn/pull/29) (@kzu)
 
