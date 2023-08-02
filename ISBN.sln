@@ -14,7 +14,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ISBN", "src\ISBN\ISBN.cspro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "src\Tests\Tests.csproj", "{981FC772-B5F4-4A38-9EA6-50904FBD0C9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupsGenerator", "src\GroupsGenerator\GroupsGenerator.csproj", "{1A0A023F-2E23-44AC-8ABA-4BE5FAFF7F61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupsGenerator", "src\GroupsGenerator\GroupsGenerator.csproj", "{1A0A023F-2E23-44AC-8ABA-4BE5FAFF7F61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISBN.CodeAnalysis", "src\ISBN.CodeAnalysis\ISBN.CodeAnalysis.csproj", "{2A9AA942-4005-4EFC-BAFB-90ECC6A771E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +36,10 @@ Global
 		{1A0A023F-2E23-44AC-8ABA-4BE5FAFF7F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A0A023F-2E23-44AC-8ABA-4BE5FAFF7F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A0A023F-2E23-44AC-8ABA-4BE5FAFF7F61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A9AA942-4005-4EFC-BAFB-90ECC6A771E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A9AA942-4005-4EFC-BAFB-90ECC6A771E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A9AA942-4005-4EFC-BAFB-90ECC6A771E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A9AA942-4005-4EFC-BAFB-90ECC6A771E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
