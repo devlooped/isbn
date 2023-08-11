@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GroupsGenerator\GroupsGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" Pack="false" />
-    <ProjectReference Include="..\ISBN.CodeAnalysis\ISBN.CodeAnalysis.csproj" ReferenceOutputAssembly="false" OutputItemType="None" />
+    <!--<ProjectReference Include="..\ISBN.CodeAnalysis\ISBN.CodeAnalysis.csproj" ReferenceOutputAssembly="false" OutputItemType="None" />-->
   </ItemGroup>
 
   <ItemGroup>
