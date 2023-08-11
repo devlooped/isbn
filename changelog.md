@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.4.0](https://github.com/devlooped/isbn/tree/v1.4.0) (2023-08-11)
+
+[Full Changelog](https://github.com/devlooped/isbn/compare/v1.3.0...v1.4.0)
+
+:twisted_rightwards_arrows: Merged:
+
+- Remove current implementation of SponsorLink for now [\#63](https://github.com/devlooped/isbn/pull/63) (@kzu)
+
 ## [v1.3.0](https://github.com/devlooped/isbn/tree/v1.3.0) (2023-08-02)
 
 [Full Changelog](https://github.com/devlooped/isbn/compare/v1.2.1...v1.3.0)
