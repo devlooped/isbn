@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NuGetizer" Version="1.2.1" PrivateAsset="all" />
+    <PackageReference Include="NuGetizer" Version="1.4.9" PrivateAsset="all" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" GeneratePathProperty="true" Pack="false" ExcludeAssets="all" />
     <PackageReference Include="PolySharp" Version="1.14.1" PrivateAssets="all" />
     <PackageReference Include="Scriban" Version="5.9.1" GeneratePathProperty="true" Pack="false" ExcludeAssets="all" />
