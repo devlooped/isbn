@@ -8,6 +8,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 using Newtonsoft.Json.Linq;
 using Scriban;
+using Scriban.Runtime;
 using static System.Net.Mime.MediaTypeNames;
 
 public record Range(string Min, string Max);
@@ -85,7 +86,16 @@ public class GroupsGenerator : ISourceGenerator
             template = Template.Parse(reader.ReadToEnd());
         }
 
-        var output = template.Render(new { map = groups }, member => member.Name);
+        var context = new TemplateContext
+        {
+            LoopLimit = int.MaxValue,
+            MemberRenamer = member => member.Name
+        };
+        var model = new ScriptObject();
+        model.Import(new { map = groups }, renamer: member => member.Name);
+        context.PushGlobal(model);
+
+        var output = template.Render(context);
 
         return output;
     }
